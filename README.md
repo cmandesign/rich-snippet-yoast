@@ -48,6 +48,7 @@ I considered adding rich snippet data manually to WordPress theme since I develo
 Before you do anything, I should tell you that your content subject and type are really important in the snippet that you want to generate. For example, if your content is video you should use video format or if your website is a blog or you are writing news or article you should use Article/ArticleNews format. So please check out following links to know what format you should use and you can easily prepare and develop your format at the end of this article.
 
 [JSONLD.com (Article) : please check other formats ](https://jsonld.com/article/)
+
 [Google Developer Section ( with more details )](https://developers.google.com/search/docs/data-types/article)
 
 
