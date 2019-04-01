@@ -1,21 +1,26 @@
-# How to add Rich Snippet to Wordpress themes manually using Yoast  + WP-PostRatings 
-Here I am to tell you,  how we can easily add rich snippets to our Wordpress theme manually without headache or using complex plugins. 
+# How to Add Rich Snippet to Wordpress Themes Manually Using Yoast + WP-PostRatings
+In this piece we will learn how we can easily add rich snippets to our Wordpress theme manually without headache or using complex plugins.
+
 ### Requirements
-- You should know about Wordpress & Yoast SEO
+
+- You should be familiar with Wordpress & Yoast SEO
 - A little knowledge of PHP to understand and make few edits in my codes based on your requirement
-- Patience to read this article carefully, you should know that I am lazy as you are and I don't want to be talkative! I'm just writing the important things to make sure you know what we are doing here. 
+- Patience to read this article carefully, you should know that I am lazy as you are and I don't want to be talkative! I'm just writing the important things to make sure you know what we are doing here.
+
 ## Story
-As you know, Rich Snippets get considered by Google recently and Yoast only added Schema support for Wordpress 5.0+ new editor and I should tell you that rich snippets have higher priority compare to old meta keywords so your configuration for Yoast meta keywords will be useless in search results if you use another plugin for adding rich snippets in WordPress.
+As you know, Google started taking Rich Snippets into consideration and Yoast only added Schema support for Wordpress 5.0+ new editor and it's worth noting that rich snippets have higher priority compared to old meta keywords so your configuration for Yoast meta keywords will be useless in search results if you use another plugin for adding rich snippets in WordPress.
 
-Also, There is a popular plugin called Post Ratings that is very cool and has been downloaded more than 100K from WordPress repository which has built-in support for the rich snippet. That is very cool but as we know, it will override Yoast meta keywords and your search results view won't be the template that you have set in the Yoast appearance section.
+Also, there is a popular plugin called Post Ratings that is very cool and has more than 100K downloads from the WordPress repository and has a built-in support for the rich snippet. That is very useful but as we know, it will override Yoast meta keywords and your search results view won't be the template that you have set in the Yoast appearance section.
 
-it was the story, but what is my solution? 
+Now we know what the story is, but what is my solution?
+
 
 ## My Solution
-I thought that I'm able to add rich snippet data manually to WordPress theme easily as I developed the theme my self.
-So i started to edit [b] single.php [/b] :
+I considered adding rich snippet data manually to WordPress theme since I developed the theme myself. So I started to edit **single.php** :
 
- ### 1. Find the WordPress loop, it should be something like this :
+ ### 1. Find the WordPress loop
+ It should be something like this
+
 ```php
 <?php get_header(); ?>
  <div id="content" class="narrowcolumn">
@@ -40,13 +45,14 @@ So i started to edit [b] single.php [/b] :
 ```
 
 ### 2. Prepare Your JSON-LD Format, Based on your website
-Before you do anything, I should tell you that your content subject and type are really important in the snippet that you want to generate. for example, if your contents are video blog you should use video format or if your website is a blog or you are writing news or article you should use Article/ArticleNews format. So please check out following links to know what format you should use and you can easily prepare and develop your format at the end of this article.
+Before you do anything, I should tell you that your content subject and type are really important in the snippet that you want to generate. For example, if your content is video you should use video format or if your website is a blog or you are writing news or article you should use Article/ArticleNews format. So please check out following links to know what format you should use and you can easily prepare and develop your format at the end of this article.
 
 [JSONLD.com (Article) : please check other formats ](https://jsonld.com/article/)
 [Google Developer Section ( with more details )](https://developers.google.com/search/docs/data-types/article)
 
 
-My website contents are articles, so here is what i want to generate : 
+My website's contents are articles, so here is what I want to generate 
+
 ```javascript    
  <script type="application/ld+json">
 { 
@@ -91,8 +97,7 @@ My website contents are articles, so here is what i want to generate :
 ```
 
 ### 3.Generate the JSON-LD format
-Read the following code carefully, I wrote notes and explanation inside the box. then you could add it anywhere inside the Wordpress loop in single posts, pages or any other post types. 
-I prefer to create a new file called 'single_post_rich_snippet.php' and insert the following code into it, then I will include this file anywhere.
+Read the following code carefully, I wrote notes and explanations inside the box. Afterwards you can add it anywhere inside the Wordpress loop in single posts, pages or any other post types. I prefer to create a new file called 'single_post_rich_snippet.php' and insert the following code into it, then I will include this file anywhere.
 
 ```php
 <?php
@@ -198,20 +203,21 @@ $post_modified_date = mysql2date( 'c', $post->post_modified, false);
 <?php get_footer(); ?>
 ```
 
-Almost done! we should just validate our codes.
+Almost done! We should just validate our codes before moving on.
 
-### Validating The Result
-For validation of our codes, we could use the Structured Data Testing Tool
-https://search.google.com/structured-data/testing-tool
+### Validating the Result
+For validation of our codes, we could use the Structured Data Testing Tool https://search.google.com/structured-data/testing-tool
 
-And we could enter our webpage URL and see the result, warnings, and errors. 
-if everything looks good, so we should wait in Google Search Console to see the google crawlers results :)
+And now we are able to enter our webpage URL and see the result, warnings, and errors. If everything looks good, we have to wait in the Google Search Console to see the Google crawlers results :)
+
 
 ### Yoast Breadcrumb as Rich Snippet
-I suggest you use Yoast Breadcrumb in your theme too, it's very easy to add and use to make your search result appearance better. 
+I suggest you use Yoast Breadcrumb in your theme too, it's very easy to add and use, plus it makes your search result appear better.
 
-### Final Word
-Please comment and share your experience with me and help me to make the solution better. 
+### Final Words
+Please comment and share your experience with me and help me to improve the solution I came up with.
 
 ### Authors and Contributors
 - Soroosh Khodami - [Linkedin](https://www.linkedin.com/in/sorooshkhodami/) - [Github](http://github.com/cmandesign/)
+
+Thanks to Amir Arzani for proofreading this piece
